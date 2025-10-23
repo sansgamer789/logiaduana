@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Usuario</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container mt-4">
+    <h2 th:text="${usuario.id == null ? 'Nuevo Usuario' : 'Editar Usuario'}"></h2>
+
+    <!-- Formulario -->
+    <form th:action="@{/usuarios/guardar}" th:object="${usuario}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+
+        <!-- Nombre -->
+        <div class="mb-3">
+            <label class="form-label">Nombre</label>
+            <input type="text" th:field="*{nombre}" class="form-control" placeholder="Ingrese el nombre" required/>
+        </div>
+
+        <!-- Usuario -->
+        <div class="mb-3">
+            <label class="form-label">Usuario</label>
+            <input type="text" th:field="*{username}" class="form-control" placeholder="Ingrese el nombre de usuario" required/>
+        </div>
+
+        <!-- Contraseña -->
+        <div class="mb-3">
+            <label class="form-label">Contraseña</label>
+            <input type="password" th:field="*{password}" class="form-control" placeholder="Ingrese la contraseña" required/>
+        </div>
+
+        <!-- Email -->
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" th:field="*{email}" class="form-control" placeholder="Ingrese el email" required/>
+        </div>
+
+        <!-- Rol -->
+        <div class="mb-3">
+            <label class="form-label">Rol</label>
+            <input type="text" th:field="*{rol}" class="form-control" placeholder="Ej: ADMIN, USER" required/>
+        </div>
+
+        <!-- Botones -->
+        <div class="text-end">
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a th:href="@{/usuarios}" class="btn btn-secondary">Cancelar</a>
+        </div>
+    </form>
+</div>
+</body>
+</html>

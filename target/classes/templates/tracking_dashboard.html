@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Tracking de Cargas</title>
+</head>
+<body>
+    <h1>Tracking de Cargas</h1>
+    <form action="/tracking" method="post">
+        <label for="codigo">Código de carga:</label>
+        <input type="text" id="codigo" name="codigo" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <div th:if="${carga}">
+        <h2>Resultado</h2>
+        <p><strong>Código:</strong> <span th:text="${carga.codigo}"></span></p>
+        <p><strong>Descripción:</strong> <span th:text="${carga.descripcion}"></span></p>
+        <p><strong>Estado:</strong> <span th:text="${carga.estado}"></span></p>
+    </div>
+
+    <div th:if="${error}">
+        <p th:text="${error}" style="color:red;"></p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>LogiAduana</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css">
+</head>
+<body th:fragment="layout">
+    <nav>
+        <ul>
+            <li><strong>LogiAduana</strong></li>
+            <li><a th:href="@{/}">Dashboard</a></li>
+            <li><a th:href="@{/cargas/}">Cargas</a></li>
+            <li><a th:href="@{/tracking/}">Tracking</a></li>
+        </ul>
+    </nav>
+    <main class="container">
+        <div th:replace="~{::content}"></div>
+    </main>
+</body>
+</html>

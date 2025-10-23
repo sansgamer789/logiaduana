@@ -1,0 +1,16 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layout">
+<body>
+<section th:fragment="content">
+  <h2>Registrar Carga</h2>
+  <form th:action="@{/cargas/create}" method="post" th:object="${cargo}">
+    <label>Descripción <input type="text" th:field="*{descripcion}" required></label>
+    <label>Peso <input type="number" step="0.01" th:field="*{peso}" required></label>
+    <label>Volumen <input type="number" step="0.01" th:field="*{volumen}"></label>
+    <label>Embalaje <input type="text" th:field="*{embalaje}"></label>
+    <button type="submit">Guardar</button>
+  </form>
+</section>
+</body>
+</html>

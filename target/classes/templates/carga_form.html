@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario Carga</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h1 th:text="${carga.id == null} ? 'Añadir Carga' : 'Editar Carga'"></h1>
+
+    <form th:action="@{/cargas/guardar}" th:object="${carga}" method="post">
+        <input type="hidden" th:field="*{id}">
+        <label>Descripción:</label>
+        <input type="text" th:field="*{descripcion}" required>
+        <br>
+        <label>Cliente:</label>
+        <input type="text" th:field="*{cliente}" required>
+        <br>
+        <button type="submit" class="btn">💾 Guardar</button>
+    </form>
+
+    <a th:href="@{/cargas}" class="btn">⬅️ Volver</a>
+</body>
+</html>

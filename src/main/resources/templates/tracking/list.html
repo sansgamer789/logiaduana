@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="layout :: layout">
+<body>
+<section th:fragment="content">
+  <h2>Seguimiento de Envíos</h2>
+  <table>
+    <thead><tr><th>ID</th><th>Carga</th><th>Vehículo</th><th>Estado</th></tr></thead>
+    <tbody>
+      <tr th:each="s : ${shipments}">
+        <td th:text="${s.id}">1</td>
+        <td th:text="${s.carga.descripcion}">Carga</td>
+        <td th:text="${s.vehicle != null ? s.vehicle.plate : '-'}">-</td>
+        <td th:text="${s.status}">CREADA</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+</body>
+</html>

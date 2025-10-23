@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nuevo Tracking</title>
+</head>
+<body>
+<h1>Agregar Seguimiento</h1>
+
+<form th:action="@{'/tracking/guardar/' + ${cargaId}}" method="post" th:object="${tracking}">
+    Estado: <input type="text" th:field="*{estado}" required><br>
+    Ubicación: <input type="text" th:field="*{ubicacion}" required><br>
+    <button type="submit">Guardar</button>
+</form>
+
+<a th:href="@{'/tracking/' + ${cargaId}}">⬅ Volver</a>
+</body>
+</html>

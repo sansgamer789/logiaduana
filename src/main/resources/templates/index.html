@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>LogiAduana</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h1>Bienvenido a LogiAduana</h1>
+
+    <div class="menu">
+        <a th:href="@{/cargas}" class="btn">📦 Añadir Carga</a>
+        <a th:href="@{/reportes}" class="btn">📊 Generar Reporte</a>
+    </div>
+
+    <div class="tracking">
+        <form th:action="@{/tracking}" method="get">
+            <label for="codigo">Código de Tracking:</label>
+            <input type="text" id="codigo" name="codigo" required>
+            <button type="submit">🔍 Buscar</button>
+        </form>
+    </div>
+</body>
+</html>

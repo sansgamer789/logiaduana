@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Tracking de Cargas</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+    <h1>📦 Tracking de Cargas</h1>
+
+    <!-- Formulario de búsqueda -->
+    <form th:action="@{/tracking}" method="post">
+        <label for="numeroGuia">Número de Guía:</label>
+        <input type="text" id="numeroGuia" name="numeroGuia" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    <hr>
+
+    <!-- Si encuentra la carga -->
+    <div th:if="${carga != null}">
+        <h2>Resultado de búsqueda</h2>
+        <p><strong>Número de Guía:</strong> <span th:text="${carga.numeroGuia}"></span></p>
+        <p><strong>Cliente:</strong> <span th:text="${carga.cliente}"></span></p>
+        <p><strong>Descripción:</strong> <span th:text="${carga.descripcion}"></span></p>
+        <p><strong>Estado:</strong> <span th:text="${carga.estado}"></span></p>
+    </div>
+
+    <!-- Si no encuentra nada -->
+    <div th:if="${error != null}">
+        <p style="color:red;" th:text="${error}"></p>
+    </div>
+
+    <hr>
+    <!-- Navegación -->
+    <a th:href="@{/dashboard}">🏠 Dashboard</a> |
+    <a th:href="@{/cargas}">📋 Ver Cargas</a> |
+    <a th:href="@{/reportes}">📊 Reportes</a>
+</body>
+</html>
+
