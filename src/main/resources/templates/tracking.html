@@ -13,7 +13,13 @@
         <label for="numeroGuia">Número de Guía:</label>
         <input type="text" id="numeroGuia" name="numeroGuia" required>
         <button type="submit">Buscar</button>
-    </form>
+    
+  <label for="desde">Desde:</label>
+  <input type="date" id="desde" name="desde">
+  <label for="hasta" style="margin-left:12px;">Hasta:</label>
+  <input type="date" id="hasta" name="hasta">
+
+</form>
 
     <hr>
 
@@ -36,6 +42,14 @@
     <a th:href="@{/dashboard}">🏠 Dashboard</a> |
     <a th:href="@{/cargas}">📋 Ver Cargas</a> |
     <a th:href="@{/reportes}">📊 Reportes</a>
+
+    <!-- Botón PDF visible cuando hay resultado -->
+    <div th:if="${carga != null}">
+        <p style="margin-top:10px;">
+            <a th:href="@{|/tracking/pdf?numeroGuia=${carga.numeroGuia}|}">🖨️ Imprimir PDF</a>
+        </p>
+    </div>
+    
 </body>
 </html>
 

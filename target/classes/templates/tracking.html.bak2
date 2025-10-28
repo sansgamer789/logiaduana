@@ -42,14 +42,6 @@
     <a th:href="@{/dashboard}">🏠 Dashboard</a> |
     <a th:href="@{/cargas}">📋 Ver Cargas</a> |
     <a th:href="@{/reportes}">📊 Reportes</a>
-
-    <!-- Botón PDF visible cuando hay resultado -->
-    <div th:if="${carga != null}">
-        <p style="margin-top:10px;">
-            <a th:href="@{|/tracking/pdf?numeroGuia=${carga.numeroGuia}|}">🖨️ Imprimir PDF</a>
-        </p>
-    </div>
-    
 </body>
 </html>
 

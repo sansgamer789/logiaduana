@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <title>Reporte de Tracking</title>
+  <style>
+    body { font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+    h1 { font-size: 18px; margin: 0 0 8px 0; }
+    .meta { margin: 8px 0 16px 0; }
+    .meta span { display: inline-block; margin-right: 16px; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { border: 1px solid #999; padding: 6px; text-align: left; }
+    th { background: #f2f2f2; }
+  </style>
+</head>
+<body>
+  <h1>Reporte de Tracking</h1>
+
+  <div class="meta">
+    <span><strong>Generado:</strong>
+      <span th:text="${#dates.format(#dates.createNow(), 'dd/MM/yyyy HH:mm')}"></span>
+    </span>
+    <span><strong>Guía:</strong>
+      <span th:text="${carga != null ? carga.numeroGuia : numeroGuia}">-</span>
+    </span>
+    <span th:if="${desde != null}"><strong>Desde:</strong>
+      <span th:text="${#dates.format(desde, 'dd/MM/yyyy')}"></span>
+    </span>
+    <span th:if="${hasta != null}"><strong>Hasta:</strong>
+      <span th:text="${#dates.format(hasta, 'dd/MM/yyyy')}"></span>
+    </span>
+  </div>
+
+  <div th:if="${carga == null}">
+    <p>No se encontró ninguna carga con el número de guía indicado.</p>
+  </div>
+
+  <div th:if="${carga != null}">
+    <h3>Datos de la carga</h3>
+    <table>
+      <tr><th>ID</th><td th:text="${carga.id}">1</td></tr>
+      <tr><th>Cliente</th><td th:text="${carga.cliente}">Cliente</td></tr>
+      <tr><th>Descripción</th><td th:text="${carga.descripcion}">Desc</td></tr>
+      <tr><th>Estado</th><td th:text="${carga.estado}">CREADA</td></tr>
+      <tr><th>Código</th><td th:text="${carga.numeroGuia}">-</td></tr>
+    </table>
+  </div>
+</body>
+</html>
