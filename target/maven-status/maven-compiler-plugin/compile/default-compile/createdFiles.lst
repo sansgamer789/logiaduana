@@ -29,9 +29,11 @@ com\logiaduana\config\SecurityConfig.class
 com\logiaduana\model\Usuario.class
 com\logiaduana\controller\UsuarioController.class
 com\logiaduana\LogiAduanaApplication.class
+com\logiaduana\controller\TrackingPdfController.class
 com\logiaduana\repository\CargoRepository.class
 com\logiaduana\controller\DashboardController.class
 com\logiaduana\controller\WebController.class
 com\logiaduana\controller\HomeController.class
 com\logiaduana\model\Vehicle.class
 com\logiaduana\model\Role.class
+com\logiaduana\service\PdfService.class
